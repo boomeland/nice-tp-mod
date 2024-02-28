@@ -1,6 +1,7 @@
 package net.boomeland.nicetpmod.item;
 
 import net.boomeland.nicetpmod.NiceTPMod;
+import net.boomeland.nicetpmod.item.custom.teleportationTabletItem.TeleportationTabletItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -12,10 +13,10 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
 
-    public static final Item tablet = registerItem("tablet", new Item(new FabricItemSettings()));
+    public static final Item TELEPORTATION_TABLET = registerItem("teleportation_tablet", new TeleportationTabletItem(new FabricItemSettings().maxCount(1)));
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries){
-        entries.add(tablet);
+        entries.add(TELEPORTATION_TABLET);
     }
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(NiceTPMod.MOD_ID, name), item);
