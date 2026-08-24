@@ -10,7 +10,10 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * Handles the tablet's C2S packets. Every handler trusts nothing from the
@@ -19,6 +22,10 @@ import java.util.List;
  * the packet, so a modified client can't fake a location or dimension.
  */
 public class ServerNetworking {
+
+    private static final long TELEPORT_COOLDOWN_MILLIS = 60_000L;
+    // In-memory only: a cooldown doesn't need to survive a server restart.
+    private static final Map<UUID, Long> lastTeleportMillis = new HashMap<>();
 
     public static void register() {
         ServerPlayNetworking.registerGlobalReceiver(ModNetworking.ADD_WAYPOINT, (server, player, handler, buf, sender) -> {
@@ -60,6 +67,16 @@ public class ServerNetworking {
             return;
         }
 
+        long now = System.currentTimeMillis();
+        if (!player.getAbilities().creativeMode) {
+            long remainingMillis = TELEPORT_COOLDOWN_MILLIS - (now - lastTeleportMillis.getOrDefault(player.getUuid(), 0L));
+            if (remainingMillis > 0) {
+                long remainingSeconds = (remainingMillis + 999) / 1000;
+                player.sendMessage(Text.literal("Vous devez attendre encore " + remainingSeconds + "s avant de pouvoir vous téléporter à nouveau."), true);
+                return;
+            }
+        }
+
         Identifier currentDimension = player.getWorld().getRegistryKey().getValue();
         if (!currentDimension.equals(waypoint.dimension())) {
             player.sendMessage(Text.literal("Vous devez être dans la même dimension que ce point pour vous y téléporter."), true);
@@ -77,6 +94,9 @@ public class ServerNetworking {
         // Same-dimension move only (checked above), so the network handler's
         // teleport is enough; no need for the cross-world ServerPlayerEntity#teleport.
         player.networkHandler.requestTeleport(waypoint.x(), waypoint.y(), waypoint.z(), player.getYaw(), player.getPitch());
+        lastTeleportMillis.put(player.getUuid(), now);
+        // false = chat, not the action bar used for the messages above.
+        player.sendMessage(Text.literal("Téléportation terminée -> \"" + waypoint.name() + "\""), false);
     }
 
     public static void sendSync(ServerPlayerEntity player) {
