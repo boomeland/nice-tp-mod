@@ -2,6 +2,7 @@ package net.nicetpmod;
 
 import net.nicetpmod.item.ModItems;
 import net.nicetpmod.loot.ModLootTables;
+import net.nicetpmod.network.ModNetworking;
 import net.nicetpmod.network.ServerNetworking;
 import net.fabricmc.api.ModInitializer;
 
@@ -16,6 +17,7 @@ public class NiceTPMod implements ModInitializer {
 	public void onInitialize() {
 
 		ModItems.registerModItems();
+		ModNetworking.registerPayloadTypes();
 		ServerNetworking.register();
 		ModLootTables.register();
 	}

@@ -9,7 +9,9 @@ that lets a player save up to 12 named locations and teleport back to them.
   save your current position, then click a saved entry to teleport there.
 - **Same-dimension only** — entries from another dimension are shown but
   greyed out; teleporting there is blocked server-side too.
-- **XP cost** — each teleport costs 1 experience level (waived in creative).
+- **XP cost & cooldown** — each teleport costs 1 experience level and has a
+  60s per-player cooldown (both waived in creative), and prints a chat
+  confirmation naming the waypoint on success.
 - **Per-player storage** — waypoints are tied to the player (not the
   item stack), stored server-side and persisted with the world save.
 - **Custom held-item model** — a 3D Blockbench model is shown in hand/on
