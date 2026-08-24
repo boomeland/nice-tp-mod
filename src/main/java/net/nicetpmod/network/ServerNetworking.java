@@ -1,7 +1,7 @@
-package net.boomeland.nicetpmod.network;
+package net.nicetpmod.network;
 
-import net.boomeland.nicetpmod.teleport.Waypoint;
-import net.boomeland.nicetpmod.teleport.WaypointState;
+import net.nicetpmod.teleport.Waypoint;
+import net.nicetpmod.teleport.WaypointState;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.network.PacketByteBuf;

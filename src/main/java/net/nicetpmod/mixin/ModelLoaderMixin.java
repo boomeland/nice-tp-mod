@@ -1,6 +1,6 @@
-package net.boomeland.nicetpmod.mixin;
+package net.nicetpmod.mixin;
 
-import net.boomeland.nicetpmod.NiceTPMod;
+import net.nicetpmod.NiceTPMod;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.render.model.ModelLoader;
 import net.minecraft.client.render.model.json.JsonUnbakedModel;

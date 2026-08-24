@@ -1,4 +1,4 @@
-package net.boomeland.nicetpmod.mixin;
+package net.nicetpmod.mixin;
 
 import net.minecraft.client.render.item.ItemModels;
 import net.minecraft.client.render.item.ItemRenderer;

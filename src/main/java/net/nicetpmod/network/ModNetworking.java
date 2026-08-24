@@ -1,6 +1,6 @@
-package net.boomeland.nicetpmod.network;
+package net.nicetpmod.network;
 
-import net.boomeland.nicetpmod.NiceTPMod;
+import net.nicetpmod.NiceTPMod;
 import net.minecraft.util.Identifier;
 
 /**

@@ -1,8 +1,8 @@
-package net.boomeland.nicetpmod.GUI.teleportationTabletGui;
+package net.nicetpmod.gui;
 
-import net.boomeland.nicetpmod.network.ModNetworking;
-import net.boomeland.nicetpmod.teleport.Waypoint;
-import net.boomeland.nicetpmod.teleport.WaypointState;
+import net.nicetpmod.network.ModNetworking;
+import net.nicetpmod.teleport.Waypoint;
+import net.nicetpmod.teleport.WaypointState;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.gui.DrawContext;

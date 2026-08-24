@@ -1,4 +1,4 @@
-package net.boomeland.nicetpmod.teleport;
+package net.nicetpmod.teleport;
 
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;

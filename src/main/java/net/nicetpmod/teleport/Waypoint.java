@@ -1,4 +1,4 @@
-package net.boomeland.nicetpmod.teleport;
+package net.nicetpmod.teleport;
 
 import net.minecraft.util.Identifier;
 

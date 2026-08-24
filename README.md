@@ -24,7 +24,7 @@ that lets a player save up to 12 named locations and teleport back to them.
 - `teleport/` — `Waypoint` data and `WaypointState` (server-side persistence).
 - `network/` — client/server packets that keep the GUI in sync with the
   server-authoritative waypoint list.
-- `GUI/` — the client-side `Screen` for managing waypoints.
+- `gui/` — the client-side `Screen` for managing waypoints.
 - `loot/` — injects the tablet into vanilla loot tables.
 - `mixin/` — renders the custom 3D model for non-GUI render modes.
 - `src/main/resources/data/nicetpmod/` — recipe and recipe-unlock advancement.

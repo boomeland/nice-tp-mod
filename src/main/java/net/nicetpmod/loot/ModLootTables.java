@@ -1,6 +1,6 @@
-package net.boomeland.nicetpmod.loot;
+package net.nicetpmod.loot;
 
-import net.boomeland.nicetpmod.item.ModItems;
+import net.nicetpmod.item.ModItems;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTables;

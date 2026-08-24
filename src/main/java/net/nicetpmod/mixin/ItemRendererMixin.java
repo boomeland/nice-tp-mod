@@ -1,7 +1,7 @@
-package net.boomeland.nicetpmod.mixin;
+package net.nicetpmod.mixin;
 
-import net.boomeland.nicetpmod.NiceTPMod;
-import net.boomeland.nicetpmod.item.ModItems;
+import net.nicetpmod.NiceTPMod;
+import net.nicetpmod.item.ModItems;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.BakedModel;

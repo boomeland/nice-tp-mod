@@ -11,10 +11,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.boomeland.nicetpmod.NiceTPMod"
+			"net.nicetpmod.NiceTPMod"
 		],
 		"client": [
-			"net.boomeland.nicetpmod.NiceTPModClient"
+			"net.nicetpmod.NiceTPModClient"
 		]
 	},
 	"mixins": [

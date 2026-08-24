@@ -1,6 +1,6 @@
-package net.boomeland.nicetpmod.item.custom.teleportationTabletItem;
+package net.nicetpmod.item.custom;
 
-import net.boomeland.nicetpmod.network.ServerNetworking;
+import net.nicetpmod.network.ServerNetworking;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
