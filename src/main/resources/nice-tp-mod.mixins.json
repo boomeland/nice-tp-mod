@@ -1,10 +1,8 @@
 {
 	"required": true,
-	"package": "net.boomeland.nicetpmod.mixin",
+	"package": "net.nicetpmod.mixin",
 	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"ExampleMixin"
-	],
+	"mixins": [],
 	"client": [
 		"ItemRendererAccessor",
 		"ItemRendererMixin",

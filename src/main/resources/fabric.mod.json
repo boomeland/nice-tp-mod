@@ -7,21 +7,14 @@
 	"authors": [
 		"boomeland"
 	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
 	"license": "MIT",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.boomeland.nicetpmod.NiceTPMod"
+			"net.nicetpmod.NiceTPMod"
 		],
 		"client": [
-			"net.boomeland.nicetpmod.NiceTPModClient"
-		],
-		"fabric-datagen": [
-			"net.boomeland.nicetpmod.NiceTPModDataGenerator"
+			"net.nicetpmod.NiceTPModClient"
 		]
 	},
 	"mixins": [
@@ -32,8 +25,5 @@
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }

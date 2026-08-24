@@ -1,7 +1,7 @@
-package net.boomeland.nicetpmod.item;
+package net.nicetpmod.item;
 
-import net.boomeland.nicetpmod.NiceTPMod;
-import net.boomeland.nicetpmod.item.custom.teleportationTabletItem.TeleportationTabletItem;
+import net.nicetpmod.NiceTPMod;
+import net.nicetpmod.item.custom.TeleportationTabletItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;

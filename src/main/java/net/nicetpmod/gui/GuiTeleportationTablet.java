@@ -1,8 +1,8 @@
-package net.boomeland.nicetpmod.GUI.teleportationTabletGui;
+package net.nicetpmod.gui;
 
-import net.boomeland.nicetpmod.network.ModNetworking;
-import net.boomeland.nicetpmod.teleport.Waypoint;
-import net.boomeland.nicetpmod.teleport.WaypointState;
+import net.nicetpmod.network.ModNetworking;
+import net.nicetpmod.teleport.Waypoint;
+import net.nicetpmod.teleport.WaypointState;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.gui.DrawContext;
@@ -15,6 +15,12 @@ import net.minecraft.util.Identifier;
 
 import java.util.List;
 
+/**
+ * The tablet has no client-side waypoint state of its own: this screen is
+ * only ever built or refreshed from a server {@code sync_waypoints}
+ * snapshot (see {@code NiceTPModClient}), and every button click just
+ * sends a request and waits for the next snapshot to redraw itself.
+ */
 public class GuiTeleportationTablet extends Screen {
     private static final int ENTRY_HEIGHT = 22;
     private static final int LIST_TOP = 30;
@@ -28,6 +34,7 @@ public class GuiTeleportationTablet extends Screen {
         this.waypoints = waypoints;
     }
 
+    /** Called when a fresh snapshot arrives while this screen is already open. */
     public void updateWaypoints(List<Waypoint> waypoints) {
         this.waypoints = waypoints;
         this.clearAndInit();
@@ -48,6 +55,7 @@ public class GuiTeleportationTablet extends Screen {
                     Text.literal(waypoint.name() + "  (" + (int) waypoint.x() + ", " + (int) waypoint.y() + ", " + (int) waypoint.z() + ")"),
                     button -> sendTeleport(index)
             ).dimensions(left, y, LIST_WIDTH - 22, 20).build();
+            // Grey out entries from other dimensions; the server rejects them too.
             teleportButton.active = waypoint.dimension().equals(currentDimension);
             this.addDrawableChild(teleportButton);
 
