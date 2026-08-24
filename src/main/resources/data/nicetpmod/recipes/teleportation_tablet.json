@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VBV",
+    "BNB",
+    "VBV"
+  ],
+  "key": {
+    "V": {
+      "item": "minecraft:purple_stained_glass_pane"
+    },
+    "B": {
+      "item": "minecraft:white_stained_glass_pane"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "result": {
+    "item": "nicetpmod:teleportation_tablet",
+    "count": 1
+  }
+}

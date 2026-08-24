@@ -1,6 +1,7 @@
 package net.boomeland.nicetpmod;
 
 import net.boomeland.nicetpmod.item.ModItems;
+import net.boomeland.nicetpmod.loot.ModLootTables;
 import net.boomeland.nicetpmod.network.ServerNetworking;
 import net.fabricmc.api.ModInitializer;
 
@@ -16,5 +17,6 @@ public class NiceTPMod implements ModInitializer {
 
 		ModItems.registerModItems();
 		ServerNetworking.register();
+		ModLootTables.register();
 	}
 }
