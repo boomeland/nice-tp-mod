@@ -1,3 +1,6 @@
 {
-  "item.nicetpmod.teleportation_tablet": "TP Tablet"
+  "item.nicetpmod.teleportation_tablet": "TP Tablet",
+  "gui.nicetpmod.teleportation_tablet": "Teleportation Tablet",
+  "gui.nicetpmod.waypoint_name": "Waypoint name",
+  "gui.nicetpmod.add_waypoint": "Add"
 }
