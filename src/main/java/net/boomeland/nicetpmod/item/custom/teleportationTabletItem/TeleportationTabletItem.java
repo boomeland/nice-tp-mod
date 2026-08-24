@@ -15,6 +15,12 @@ public class TeleportationTabletItem extends Item {
         super(settings);
     }
 
+    /**
+     * Right-click just asks the server for the player's current waypoint
+     * list; the GUI itself is opened client-side once that snapshot packet
+     * arrives (see {@code NiceTPModClient}), so it always opens with
+     * up-to-date data instead of a stale client-side copy.
+     */
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient && user instanceof ServerPlayerEntity serverPlayer) {

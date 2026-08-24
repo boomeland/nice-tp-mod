@@ -13,6 +13,8 @@ import java.util.List;
 public class NiceTPModClient implements ClientModInitializer{
     @Override
     public void onInitializeClient() {
+        // The server sends this snapshot both to open the GUI (tablet right-click)
+        // and to refresh it after add/remove/teleport, so this one receiver covers both.
         ClientPlayNetworking.registerGlobalReceiver(ModNetworking.SYNC_WAYPOINTS, (client, handler, buf, sender) -> {
             int count = buf.readInt();
             List<Waypoint> waypoints = new ArrayList<>();

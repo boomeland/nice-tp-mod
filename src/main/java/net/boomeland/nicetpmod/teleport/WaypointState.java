@@ -14,6 +14,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * Waypoints belong to the player (UUID), not to a specific tablet item
+ * stack, so any tablet the player holds sees the same list and it
+ * survives the item being lost, dropped or duplicated. Stored as a
+ * single {@link PersistentState} on the overworld save rather than in
+ * per-player data, since that's the simplest place both client-triggered
+ * add/remove/teleport packets can reach without extra plumbing.
+ */
 public class WaypointState extends PersistentState {
     public static final int MAX_WAYPOINTS = 12;
     private static final String ID = "nicetpmod_waypoints";

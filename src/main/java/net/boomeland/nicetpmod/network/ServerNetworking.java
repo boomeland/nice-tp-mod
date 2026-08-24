@@ -12,11 +12,19 @@ import net.minecraft.util.Identifier;
 
 import java.util.List;
 
+/**
+ * Handles the tablet's C2S packets. Every handler trusts nothing from the
+ * client except intent (add/remove/teleport which index): the player's
+ * position and dimension are always read server-side, never taken from
+ * the packet, so a modified client can't fake a location or dimension.
+ */
 public class ServerNetworking {
 
     public static void register() {
         ServerPlayNetworking.registerGlobalReceiver(ModNetworking.ADD_WAYPOINT, (server, player, handler, buf, sender) -> {
             String rawName = buf.readString(32);
+            // Packet handlers run on the network thread; hop to the server
+            // thread before touching player/world/persistent state.
             server.execute(() -> {
                 String name = rawName.isBlank()
                         ? "Point " + (int) player.getX() + "," + (int) player.getY() + "," + (int) player.getZ()
@@ -66,6 +74,8 @@ public class ServerNetworking {
             player.addExperienceLevels(-1);
         }
 
+        // Same-dimension move only (checked above), so the network handler's
+        // teleport is enough; no need for the cross-world ServerPlayerEntity#teleport.
         player.networkHandler.requestTeleport(waypoint.x(), waypoint.y(), waypoint.z(), player.getYaw(), player.getPitch());
     }
 

@@ -16,6 +16,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The item's registered model ({@code item/teleportation_tablet}) is what
+ * gets auto-baked and is used for the inventory icon. The 3D held/ground
+ * model lives under a different, unreferenced model id, so it has to be
+ * requested explicitly here to make the model loader bake it too;
+ * {@code ItemRendererMixin} then picks it up by that same id at render time.
+ */
 @Mixin(ModelLoader.class)
 public abstract class ModelLoaderMixin {
     @Shadow
